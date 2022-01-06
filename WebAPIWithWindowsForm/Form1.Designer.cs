@@ -192,6 +192,7 @@ namespace WebAPIWithWindowsForm
             this.btnAdd.TabIndex = 16;
             this.btnAdd.Text = "Ekle";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
