@@ -130,6 +130,21 @@ namespace WebAPIWithWindowsForm
             public string GenderName { get; set; }
         }
 
-        
+        private async void btnDelete_Click(object sender, EventArgs e)
+        {
+            using (HttpClient httpClient=new HttpClient())
+            {
+                HttpResponseMessage response = await httpClient.DeleteAsync(url + "users/Delete/" + selectedID);
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Silme işlemi başarılı...");
+                    await DataGridViewFill();
+                }
+                else
+                {
+                    MessageBox.Show("silme başarısız..");
+                }
+            }
+        }
     }
 }
