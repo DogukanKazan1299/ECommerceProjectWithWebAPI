@@ -211,6 +211,7 @@ namespace WebAPIWithWindowsForm
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.Text = "Düzenle";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // dataGridView1
             // 
@@ -218,8 +219,10 @@ namespace WebAPIWithWindowsForm
             this.dataGridView1.Location = new System.Drawing.Point(28, 271);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(724, 150);
             this.dataGridView1.TabIndex = 19;
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // Form1
             // 
