@@ -1,4 +1,8 @@
+using Business.Abstract;
+using Business.Concrete;
+using DataAccess.Abstract;
 using DataAccess.Concrete.Contexts;
+using DataAccess.Concrete.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -39,6 +43,8 @@ namespace WebAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
             });
+            services.AddTransient<IUserService, UserManager>();
+            services.AddTransient<IUserDal, EfUserDal>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
