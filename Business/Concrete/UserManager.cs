@@ -61,6 +61,7 @@ namespace Business.Concrete
                 UserName = user.UserName,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
+                Password=user.Password,
                 Gender = user.Gender,
                 Address = user.Address,
                 Email = user.Email,
