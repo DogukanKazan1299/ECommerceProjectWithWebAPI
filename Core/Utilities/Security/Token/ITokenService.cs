@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Helpers.JWT
+namespace Core.Utilities.Security.Token
 {
-    public class AppSettings
+    public interface ITokenService
     {
-        public string SecurityKey { get; set; }
+        AccessToken CreateToken(int userId,string userName);
     }
 }
