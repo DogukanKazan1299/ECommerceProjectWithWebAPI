@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{9C1BFB2C-CD04-4CCC-B3B0-2D7C65F96D5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{9C1BFB2C-CD04-4CCC-B3B0-2D7C65F96D5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{CB8B4CA1-F94B-4D2E-83DC-153DF830C04E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{CB8B4CA1-F94B-4D2E-83DC-153DF830C04E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{1A7B7230-8E74-4EC5-9C8B-A329FED8AD7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{1A7B7230-8E74-4EC5-9C8B-A329FED8AD7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{0EEE3532-D44A-4BEA-ABD7-D1D7B1F5E267}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{0EEE3532-D44A-4BEA-ABD7-D1D7B1F5E267}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPIWithCoreMvc", "WebAPIWithCoreMvc\WebAPIWithCoreMvc.csproj", "{2C9FFE8B-10F2-4836-84E7-447B0FE38A90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPIWithCoreMvc", "WebAPIWithCoreMvc\WebAPIWithCoreMvc.csproj", "{2C9FFE8B-10F2-4836-84E7-447B0FE38A90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPIWithWindowsForm", "WebAPIWithWindowsForm\WebAPIWithWindowsForm.csproj", "{F0DE1A45-EC90-4944-AA95-453A3F45A8E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPIWithWindowsForm", "WebAPIWithWindowsForm\WebAPIWithWindowsForm.csproj", "{F0DE1A45-EC90-4944-AA95-453A3F45A8E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{BA623FB4-2EE0-42F0-B706-B1EA4EFA4AB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{F0DE1A45-EC90-4944-AA95-453A3F45A8E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0DE1A45-EC90-4944-AA95-453A3F45A8E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0DE1A45-EC90-4944-AA95-453A3F45A8E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA623FB4-2EE0-42F0-B706-B1EA4EFA4AB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA623FB4-2EE0-42F0-B706-B1EA4EFA4AB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA623FB4-2EE0-42F0-B706-B1EA4EFA4AB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA623FB4-2EE0-42F0-B706-B1EA4EFA4AB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

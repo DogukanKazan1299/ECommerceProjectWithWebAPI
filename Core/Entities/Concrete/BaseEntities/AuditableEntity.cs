@@ -1,11 +1,11 @@
-﻿using Entities.Abstract;
+﻿using Core.Entities.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concrete.BaseEntities
+namespace Core.Entities.Concrete.BaseEntities
 {
     public class AuditableEntity : BaseEntity, ICreatedEntity, IUpdatedEntity
     {
