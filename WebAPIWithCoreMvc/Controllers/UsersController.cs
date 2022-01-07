@@ -57,9 +57,47 @@ namespace WebAPIWithCoreMvc.Controllers
         }
 
 
+        [HttpGet]
+        public async Task<IActionResult> Update(int id)
+        {
+            var user = await _httpClient.GetFromJsonAsync<UserDto>(url + "users/getbyid/" + id);
+            UserUpdateViewModel userUpdateViewModel = new UserUpdateViewModel()
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Address = user.Address,
+                DateOfBirth = user.DateOfBirth,
+                Email = user.Email,
+                Password = user.Password,
+                UserName = user.UserName,
+                GenderID = user.Gender == true ? 1 : 2
+            };
+            ViewBag.GenderList = GenderFill();
+            return View(userUpdateViewModel);
+        }
 
-
-
+        [HttpPost]
+        public async Task<IActionResult> Update(int id,UserUpdateViewModel userUpdateViewModel)
+        {
+            UserUpdateDto userUpdateDto = new UserUpdateDto()
+            {
+                FirstName = userUpdateViewModel.FirstName,
+                LastName = userUpdateViewModel.LastName,
+                Address = userUpdateViewModel.Address,
+                DateOfBirth = userUpdateViewModel.DateOfBirth,
+                Email = userUpdateViewModel.Email,
+                Password = userUpdateViewModel.Password,
+                UserName = userUpdateViewModel.UserName,
+                Gender = userUpdateViewModel.GenderID == 1 ? true : false,
+                Id = id
+            };
+            HttpResponseMessage response = await _httpClient.PutAsJsonAsync(url + "users/update", userUpdateDto);
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
 
 
 
