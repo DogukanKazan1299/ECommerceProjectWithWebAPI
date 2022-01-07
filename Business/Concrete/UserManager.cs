@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Responses;
 using Core.Utilities.Security.Token;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -24,7 +26,7 @@ namespace Business.Concrete
             _userDal = userDal;
             _appSettings = appSettings.Value;
         }
-        public async Task<UserDto> AddAsync(UserAddDto userAddDto)
+        public async Task<ApiDataResponse<UserDto>> AddAsync(UserAddDto userAddDto)
         {
             User user = new User()
             {
@@ -51,7 +53,7 @@ namespace Business.Concrete
                 UserName = userAdd.UserName,
                 Id = userAdd.Id
             };
-            return userDto;
+            return new SuccessApiDataResponse<UserDto>(userDto, Messages.Added);
         }
 
         public async Task<AccessToken> Authenticate(UserForLoginDto userForLoginDto)
@@ -84,12 +86,13 @@ namespace Business.Concrete
             return await Task.Run(() => accessToken);
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<ApiDataResponse<bool>> DeleteAsync(int id)
         {
-            return await _userDal.DeleteAsync(id);
+            var isDelete = await _userDal.DeleteAsync(id);
+            return new SuccessApiDataResponse<bool>(isDelete, Messages.Deleted);
         }
 
-        public async Task<UserDto> GetByIdAsync(int id)
+        public async Task<ApiDataResponse<UserDto>> GetByIdAsync(int id)
         {
             var user = await _userDal.GetAsync(x => x.Id == id);
             UserDto userDto = new UserDto()
@@ -104,10 +107,10 @@ namespace Business.Concrete
                 Email = user.Email,
                 DateOfBirth = user.DateOfBirth
             };
-            return userDto;
+            return new SuccessApiDataResponse<UserDto>(userDto, Messages.Listed);
         }
 
-        public async Task<IEnumerable<UserDetailDto>> GetListAsync()
+        public async Task<ApiDataResponse<IEnumerable<UserDetailDto>>> GetListAsync()
         {
             List<UserDetailDto> userDetailDtos = new List<UserDetailDto>();
             var response = await _userDal.GetListAsync();
@@ -125,10 +128,10 @@ namespace Business.Concrete
                     Email= item.Email
                 });
             }
-            return userDetailDtos;
+            return new SuccessApiDataResponse<IEnumerable<UserDetailDto>>(userDetailDtos, Messages.Listed);
         }
 
-        public async Task<UserUpdateDto> UpdateAsync(UserUpdateDto userUpdateDto)
+        public async Task<ApiDataResponse<UserUpdateDto>> UpdateAsync(UserUpdateDto userUpdateDto)
         {
             var getUser = await _userDal.GetAsync(x => x.Id == userUpdateDto.Id);
             User user = new User()
@@ -160,7 +163,7 @@ namespace Business.Concrete
                 Id = userUpdate.Id,
                 Password = userUpdate.Password
             };
-            return newUserUpdateDto;
+            return new SuccessApiDataResponse<UserUpdateDto>(newUserUpdateDto, Messages.Updated);
         }
     }
 }
