@@ -12,5 +12,6 @@ namespace Business.Constants
         public static string Deleted = "Deleted";
         public static string Added = "Added";
         public static string Updated = "Updated";
+        public static string NotListed = "Not Listed";
     }
 }
